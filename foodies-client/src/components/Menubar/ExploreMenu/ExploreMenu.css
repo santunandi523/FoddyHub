@@ -1,40 +1,80 @@
-.explore-menu-list::webkit-scrollbar{
-    display: none;
+/* ── Scrollbar hidden ───────────────────────────────────── */
+.explore-menu-list::-webkit-scrollbar { display: none; }
+.explore-menu-list { scrollbar-width: none; }
+
+/* ── Section title ──────────────────────────────────────── */
+.explore-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  animation: fadeUp 0.5s ease both;
 }
 
-.explore-menu-list-item img{
-    cursor: pointer;
-
+/* ── Scroll arrows ──────────────────────────────────────── */
+.scroll-icon {
+  font-size: 26px;
+  cursor: pointer;
+  margin-left: 10px;
+  color: #b0b0b0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.scroll-icon:hover {
+  color: #e85d04;
+  transform: scale(1.15);
 }
 
-.explore-menu-list{
-    scrollbar-width: none;
+/* ── Category item ──────────────────────────────────────── */
+.explore-menu-list-item {
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
 }
 
-.explore-menu-list-item p{
-    color: #747474;
-    cursor: pointer;
+.explore-menu-list-item:hover {
+  transform: translateY(-6px);
 }
 
-.scroll-icon{
-    font-size: 24px;
-    cursor: pointer;
-    margin-left: 10px;
-    color: #747474;
-    transition: color 0.2s;
-}
-.scroll-icon:hover{
-    color: tomato;
+.explore-menu-list-item img {
+  border-radius: 50%;
+  border: 3px solid transparent;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  display: block;
+  margin: 0 auto;
 }
 
-.explore-menu hr{
-    margin: 10px 0px;
-    height: 2px;
-    background-color: #d1d1d1;
-    border: none;
+.explore-menu-list-item:hover img {
+  box-shadow: 0 8px 24px rgba(232,93,4,0.25);
+  transform: scale(.9);
 }
 
-.explore-menu-list-item .active{
-    border:4px solid rgb(255, 67, 33);
-    padding: 4px;
+.explore-menu-list-item img.active {
+  border: 4px solid #e85d04;
+  box-shadow: 0 4px 18px rgba(232,93,4,0.3);
+}
+
+.explore-menu-list-item p {
+  color: #555;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  transition: color 0.2s ease;
+}
+
+.explore-menu-list-item:hover p {
+  color: #e85d04;
+}
+
+/* ── Divider ────────────────────────────────────────────── */
+.explore-menu hr {
+  margin: 14px 0;
+  height: 2px;
+  background: linear-gradient(to right, #e85d04 0%, #f48c06 40%, #d1d1d1 100%);
+  border: none;
+  border-radius: 2px;
+  opacity: 0.35;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

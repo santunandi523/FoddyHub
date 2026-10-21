@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import {StoreContext} from '../../context/StoreContext';
+import {StoreContext} from '../context/StoreContext';
 import { assets } from '../../assets/assets';
 import FoodItem from '../../FoodItem/FoodItem';
 
@@ -16,7 +16,10 @@ const FoodDisplay = ({category,searchText}) => {
               description={food.description}
               id={food.id}
               imageUrl={food.imageUrl}
-              price={food.price} />
+              price={food.price}
+              isVegetarian={food.isVegetarian}
+              nutrition={food.nutrition}
+              spiceLevel={food.spiceLevel} />
             ))
           ):(
             <div className="text-center mt-4">

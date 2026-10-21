@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const API_URL='http://localhost:8080/api/foods';
+const BASE_URL = import.meta.env.VITE_API_URL;
+const API_URL = `${BASE_URL}/api/foods`;
+const REGISTER_API = `${BASE_URL}/api/register`;
+
 
 export const fetchFoodList=async()=>{
     try{
@@ -24,4 +27,14 @@ export const fetchFoodDetails=async(id) =>{
         throw error;
     }
         
+}
+
+export const registerUser=async()=>{
+    try{
+        await axios.post(REGISTER_API);
+        
+    }catch(err){
+        console.log('Error while registering');
+        throw err;
+    }
 }

@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { fetchFoodDetails } from '../../Service/FoodService';
 import {toast} from 'react-toastify';
-import { StoreContext } from '../../context/StoreContext';
+import { StoreContext } from '../../components/context/StoreContext';
 const FoodDetails = () => {
     const {id}=useParams();
     const [data,setData]=useState({});

@@ -18,4 +18,8 @@ public class FoodResponse {
     private String imageUrl;
     private double price;
     private String category;
+    private Boolean available;
+    private Boolean isVegetarian;
+    private String spiceLevel;
+    private in.onlineresturant.foodiesapi.entity.NutritionInfo nutrition;
 }

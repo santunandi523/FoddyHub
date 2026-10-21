@@ -1,0 +1,76 @@
+﻿/* ── Login page ──────────────────────────────────────────── */
+.login-container {
+  background-image: url('../../assets/login-Bg.webp');
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* dark overlay */
+.login-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.42);
+  backdrop-filter: blur(2px);
+}
+
+.login-container .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* glassmorphism card */
+.login-container .card {
+  background: rgba(255,255,255,0.88) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.6) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.22) !important;
+}
+
+/* brand title */
+.login-container .card-title {
+  font-size: 1.9rem !important;
+  font-weight: 900 !important;
+  color: #e85d04 !important;
+  letter-spacing: -0.5px;
+}
+
+/* inputs */
+.login-container .form-control {
+  border-radius: 10px !important;
+  border: 1.5px solid #e0e0e0 !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  font-size: 0.92rem;
+}
+
+.login-container .form-control:focus {
+  border-color: #e85d04 !important;
+  box-shadow: 0 0 0 3px rgba(232,93,4,0.15) !important;
+  outline: none !important;
+}
+
+/* sign-in button */
+.btn-login {
+  background: linear-gradient(135deg, #e85d04, #f48c06) !important;
+  border: none !important;
+  color: #fff !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  padding: 13px !important;
+  box-shadow: 0 6px 20px rgba(232,93,4,0.35) !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+  letter-spacing: 0.5px;
+}
+
+.btn-login:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 30px rgba(232,93,4,0.48) !important;
+}

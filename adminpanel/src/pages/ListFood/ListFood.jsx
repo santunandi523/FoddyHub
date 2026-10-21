@@ -8,8 +8,9 @@ const ListFood = () => {
     const fetchList=async()=>{
       try {
         const data =await getFoodList();
-        setList(data);
+        setList(Array.isArray(data) ? data : []);
       } catch (error) {
+        setList([]);
         toast.error('Error occured while fetching foods')
       }
     }

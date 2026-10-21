@@ -5,7 +5,7 @@ import {BrowserRouter} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { StoreContext, StoreContextProvider } from './context/StoreContext.jsx';
+import { StoreContext, StoreContextProvider } from './components/context/StoreContext.jsx';
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <StoreContextProvider>

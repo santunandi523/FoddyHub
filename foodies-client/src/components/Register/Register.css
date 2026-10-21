@@ -1,0 +1,17 @@
+/* Register styles */
+.register-container{
+    background-image: url("../../assets/login-Bg.webp");
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    transition: transform 0.2s ease;
+}
+.container:hover{
+    transform: translateY(-4px);
+}

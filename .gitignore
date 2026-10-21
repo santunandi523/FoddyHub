@@ -1,7 +1,12 @@
 **/node_modules/
 **/dist/
 **/build/
-.env*
+**/target/
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.production
 .gemini/
 .DS_Store
 *.local

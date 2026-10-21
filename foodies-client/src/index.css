@@ -1,10 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sekuya&display=swap');
-body{
+
+:root {
+  --brand: #e85d04;
+  --brand-light: #f48c06;
+  --brand-bg: #fff8f5;
+  --text-dark: #1a1a1a;
+  --text-muted: #6b7280;
+  --radius: 16px;
+  --shadow-sm: 0 2px 12px rgba(0,0,0,0.07);
+  --shadow-md: 0 8px 28px rgba(0,0,0,0.11);
+  --shadow-lg: 0 18px 48px rgba(0,0,0,0.15);
+  --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins',sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #fafafa;
+  color: var(--text-dark);
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #d0d0d0; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand); }
+
+/* Text selection */
+::selection { background: rgba(232,93,4,0.18); color: var(--brand); }
+
+/* Utility */
+.text-brand { color: var(--brand) !important; }
+.bg-brand  { background: var(--brand) !important; }
+
+/* Fade-up animation utility */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.5s ease both; }

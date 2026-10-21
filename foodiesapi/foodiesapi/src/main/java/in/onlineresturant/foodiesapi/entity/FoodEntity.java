@@ -20,4 +20,9 @@ public class FoodEntity {
     private double price;
     private String category;
     private String imageUrl;
+    @Builder.Default
+    private Boolean available = true;
+    private Boolean isVegetarian;
+    private String spiceLevel; // "Mild", "Medium", "Spicy"
+    private NutritionInfo nutrition;
 }

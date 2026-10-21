@@ -1,0 +1,563 @@
+/* =========================================
+   Foodie AI Assistant Styles
+   ========================================= */
+
+.ai-widget-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1050;
+  font-family: inherit;
+}
+
+.ai-widget-container.full-page {
+  position: relative;
+  bottom: auto;
+  right: auto;
+  z-index: 1;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Floating Trigger Button */
+.ai-floating-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #ff4500, #ff6347);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(255, 69, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.ai-floating-trigger:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(255, 69, 0, 0.55);
+}
+
+.ai-trigger-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.ai-trigger-pulse {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background-color: #28a745;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #fff;
+  animation: ai-pulse 2s infinite;
+}
+
+@keyframes ai-pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(40, 167, 69, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+}
+
+/* Chat Window */
+.ai-chat-window {
+  width: 440px;
+  max-width: calc(100vw - 32px);
+  height: 640px;
+  max-height: calc(100vh - 100px);
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  animation: ai-slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ai-chat-window.minimized {
+  height: auto;
+  max-height: 70px;
+}
+
+.ai-chat-window.full-page-window {
+  width: 100%;
+  max-width: 100%;
+  height: 80vh;
+  max-height: 850px;
+}
+
+@keyframes ai-slide-up {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Header */
+.ai-chat-header {
+  background: linear-gradient(135deg, #1f2937, #111827);
+  color: #fff;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ai-avatar-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4500, #ff6347);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: #fff;
+}
+
+.ai-chat-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.ai-chat-subtitle {
+  font-size: 0.72rem;
+  color: #9ca3af;
+}
+
+.ai-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ai-ctrl-btn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ai-ctrl-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.ai-ctrl-btn.close-btn:hover {
+  background: rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+/* Body */
+.ai-chat-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #f9fafb;
+}
+
+.ai-msg-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.ai-msg-group.user {
+  align-items: flex-end;
+}
+
+.ai-msg-group.assistant {
+  align-items: flex-start;
+}
+
+.ai-bubble {
+  max-width: 90%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.ai-bubble.user {
+  background: linear-gradient(135deg, #ff4500, #ff6347);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.ai-bubble.assistant {
+  background: #ffffff;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.ai-bubble.error-bubble {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+/* Typing Indicator */
+.typing-bubble {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+}
+
+.ai-typing-indicator {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.ai-typing-indicator span {
+  width: 6px;
+  height: 6px;
+  background-color: #ff4500;
+  border-radius: 50%;
+  animation: ai-bounce 1.4s infinite ease-in-out both;
+}
+
+.ai-typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.ai-typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes ai-bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* Food Recommendation Cards Track */
+.ai-recommendations-slider {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.ai-cards-track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+}
+
+.ai-food-card {
+  width: 220px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-food-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  background-color: #f3f4f6;
+}
+
+.ai-food-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ai-diet-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2px 7px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ai-diet-badge.veg { color: #16a34a; }
+.ai-diet-badge.non-veg { color: #dc2626; }
+
+.ai-diet-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.ai-diet-badge.veg .ai-diet-dot { background-color: #16a34a; }
+.ai-diet-badge.non-veg .ai-diet-dot { background-color: #dc2626; }
+
+.ai-food-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ai-food-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.ai-food-price {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ff4500;
+}
+
+.ai-food-desc {
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: #6b7280;
+}
+
+.ai-nutrition-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.ai-nutri-chip {
+  background: #f3f4f6;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.ai-food-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.ai-btn-view {
+  flex: 1;
+  font-size: 0.75rem;
+  padding: 4px 6px;
+}
+
+.ai-btn-add {
+  flex: 2;
+  font-size: 0.75rem;
+  background: #ff4500;
+  border-color: #ff4500;
+  padding: 4px 6px;
+}
+
+.ai-btn-add:hover {
+  background: #e03e00;
+  border-color: #e03e00;
+}
+
+/* Proposed Order Card */
+.proposed-order-card {
+  background: #ffffff;
+  border: 1px solid #fed7aa;
+  border-left: 4px solid #f97316;
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 6px;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.1);
+}
+
+.proposed-item-thumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.proposed-item-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.ai-btn-transfer {
+  font-size: 0.88rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* Suggested Action Chips */
+.ai-suggested-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ai-action-chip {
+  background: #fff;
+  color: #ff4500;
+  border: 1px solid #ffd8cc;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ai-action-chip:hover {
+  background: #ff4500;
+  color: #fff;
+  border-color: #ff4500;
+}
+
+/* Quick Prompts Bar */
+.ai-quick-prompts-bar {
+  background: #fff;
+  padding: 6px 12px;
+  border-top: 1px solid #f3f4f6;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.ai-quick-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.ai-quick-scroll {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.ai-quick-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.ai-quick-btn {
+  background: #f3f4f6;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.ai-quick-btn:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+/* Footer / Input */
+.ai-chat-footer {
+  background: #fff;
+  padding: 10px 14px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.ai-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 24px;
+  padding: 6px 10px 6px 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ai-input-wrapper:focus-within {
+  border-color: #ff4500;
+  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.15);
+  background: #fff;
+}
+
+.ai-chat-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  resize: none;
+  font-size: 0.88rem;
+  color: #1f2937;
+  max-height: 80px;
+}
+
+.ai-send-btn {
+  background: #ff4500;
+  color: #fff;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  flex-shrink: 0;
+}
+
+.ai-send-btn:hover:not(:disabled) {
+  background: #e03e00;
+  transform: scale(1.05);
+}
+
+.ai-send-btn:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}
+
+.ai-footer-disclaimer {
+  font-size: 0.68rem;
+  color: #9ca3af;
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+  .ai-widget-container {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .ai-chat-window {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+  }
+}

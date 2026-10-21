@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./PlaceOrder.css";
 import { assets } from "../../assets/assets";
-import { StoreContext } from "../../context/StoreContext";
+import { StoreContext } from "../../components/context/StoreContext";
 import { calculateCartTotals } from "../../util/cartUtils";
 const PlaceOrder = () => {
   const {foodList,quantities,setQuantities}=useContext(StoreContext);
